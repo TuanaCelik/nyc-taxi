@@ -14,8 +14,14 @@ const dashboardOptions = {
 const loadDashboard = () => {
     Cumulio.addDashboard(dashboardOptions);
 }
+const listenToEvents = () => {
+    Cumulio.onCustomEvent(async (event) => {
+        console.log(JSON.stringify(event));
+    });
+};
 
 const loadInsightsPage = async () => {
+ listenToEvents();
  loadDashboard();
 }
 
