@@ -10,6 +10,8 @@ const client = new Cumulio({
     api_token: process.env.CUMULIO_API_TOKEN
   });
 
+  app.use(express.static(join(__dirname, 'public')));
+
   app.get('/*', (req, res) => {
     res.sendFile(join(__dirname, 'index.html'));
   });
